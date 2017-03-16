@@ -1,7 +1,13 @@
 <resources>
-  <string name="app_name">Hello World</string>
-  <string name="hello_world">Hello world!</string>
-  <string name="say_bye">Say bye!</string>
-  <string name="bye">Goodbye</string>
-  <string name="description">description</string>
+    <string name="app_name">Hello World</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="say_bye">Say bye!</string>
+    <string name="bye">Goodbye</string>
+    <string name="description">description</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="fragement_text">right side fragment</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

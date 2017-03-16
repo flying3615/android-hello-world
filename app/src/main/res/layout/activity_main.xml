@@ -20,6 +20,7 @@
             tools:src="@mipmap/ic_launcher" />
 
 
+
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -38,15 +39,28 @@
                 android:layout_height="wrap_content"
                 tools:text="Show actions" />
 
+            <TextView
+                android:text="TextView"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:id="@+id/gesture" />
+
+
         </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
-            android:orientation="vertical">
+        <fragment
+            android:layout_width="129dp"
+            android:layout_height="match_parent"
+            android:name="com.sqisland.android.hello.ui.FragmentTest"
+            android:id="@+id/fragment_fragment_test"
+            tools:layout="@layout/fragment_fragment_test" />
 
-        </LinearLayout>
+        <fragment
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:name="com.sqisland.android.hello.ui.FragementShow"
+            android:id="@+id/fragment_fragement_show"
+            tools:layout="@layout/fragment_fragement_show" />
 
     </LinearLayout>
 

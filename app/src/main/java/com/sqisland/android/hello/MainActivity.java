@@ -1,15 +1,19 @@
 package com.sqisland.android.hello;
 
-import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
-import android.support.v4.view.GestureDetectorCompat;
 
-public class MainActivity extends Activity {
+import com.sqisland.android.hello.ui.FragementShow;
+import com.sqisland.android.hello.ui.FragmentTest;
+import com.sqisland.android.hello.ui.GuestActivity;
+
+public class MainActivity extends FragmentActivity implements FragmentTest.OnFragmentInteractionListener {
 
     TextView description;
 
@@ -17,7 +21,6 @@ public class MainActivity extends Activity {
     Button button2;
 
 
-    private GestureDetectorCompat mDetector;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,17 +28,29 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
         description = (TextView) findViewById(R.id.description);
 
+
+
         button1 = (Button) findViewById(R.id.button1);
 
-        button1.setOnClickListener(v -> description.setText("Button1 clicked"));
+        button1.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        description.setText("Button1 clicked");
+                    }
+                }
+        );
 
         button2 = (Button) findViewById(R.id.button2);
 
-        button2.setOnClickListener(v -> Toast.makeText(this, "Button clicked", Toast.LENGTH_LONG).show());
+        button2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, GuestActivity.class);
+                startActivity(intent);
+            }
+        });
 
-        GestureListener gestureListener = new GestureListener();
-        mDetector = new GestureDetectorCompat(this,gestureListener);
-        mDetector.setOnDoubleTapListener(gestureListener);
 
     }
 
@@ -51,5 +66,13 @@ public class MainActivity extends Activity {
             description.setText(R.string.bye);
         }
         return super.onOptionsItemSelected(item);
+    }
+
+
+    //Called by FragmentTest when user click the button
+    @Override
+    public void onFragmentInteraction(String name, String passwd) {
+        FragementShow fragementShow = (FragementShow) getSupportFragmentManager().findFragmentById(R.id.fragment_fragement_show);
+        fragementShow.setNameAndPasswd(name, passwd);
     }
 }
