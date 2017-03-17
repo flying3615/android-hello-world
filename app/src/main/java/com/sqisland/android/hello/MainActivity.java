@@ -11,7 +11,7 @@ import android.widget.TextView;
 
 import com.sqisland.android.hello.ui.FragementShow;
 import com.sqisland.android.hello.ui.FragmentTest;
-import com.sqisland.android.hello.ui.GuestActivity;
+import com.sqisland.android.hello.ui.GestureActivity;
 
 public class MainActivity extends FragmentActivity implements FragmentTest.OnFragmentInteractionListener {
 
@@ -46,7 +46,7 @@ public class MainActivity extends FragmentActivity implements FragmentTest.OnFra
         button2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, GuestActivity.class);
+                Intent intent = new Intent(MainActivity.this, GestureActivity.class);
                 startActivity(intent);
             }
         });

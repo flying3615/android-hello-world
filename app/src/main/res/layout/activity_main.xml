@@ -74,7 +74,7 @@
             android:id="@+id/button2"
             android:layout_width="142dp"
             android:layout_height="59dp"
-            android:text="Toast"
+            android:text="Gesture"
             android:layout_row="1"
             android:layout_column="2" />
 

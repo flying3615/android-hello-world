@@ -11,7 +11,7 @@ import android.widget.TextView;
 
 import com.sqisland.android.hello.R;
 
-public class GuestActivity extends Activity implements
+public class GestureActivity extends Activity implements
         GestureDetector.OnGestureListener,
         GestureDetector.OnDoubleTapListener{
 
