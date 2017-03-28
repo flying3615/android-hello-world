@@ -1,8 +1,12 @@
 package com.sqisland.android.hello;
 
+import android.content.ComponentName;
+import android.content.Context;
 import android.content.Intent;
+import android.content.ServiceConnection;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.IBinder;
 import android.os.Message;
 import android.support.v4.app.FragmentActivity;
 import android.view.Menu;
@@ -12,6 +16,8 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.sqisland.android.hello.service.MyIntentService;
+import com.sqisland.android.hello.service.MyService;
 import com.sqisland.android.hello.ui.AnimationActivity;
 import com.sqisland.android.hello.ui.FragementShow;
 import com.sqisland.android.hello.ui.FragmentTest;
@@ -25,13 +31,35 @@ public class MainActivity extends FragmentActivity implements FragmentTest.OnFra
     Button button2;
 
 
-    Handler handler = new Handler(){
+    //----------------------------------bind service start-----------------------------
+
+    MyService myservice;
+    boolean isBound = false;
+
+    private ServiceConnection myConnection = new ServiceConnection() {
+
+        //bind service
         @Override
-        public void handleMessage(Message msg) {
-            description.setText(" after 5 seconds, Nice Job Thread !!!");
+        public void onServiceConnected(ComponentName name, IBinder service) {
+            MyService.MyLocalBinder binder = (MyService.MyLocalBinder) service;
+            myservice = binder.getService();
+            isBound = true;
+        }
+
+        //dis bind
+        @Override
+        public void onServiceDisconnected(ComponentName name) {
+            isBound = false;
         }
     };
 
+    public void showTime(){
+        String currentTime = myservice.getCurrentTime();
+        description.setText(currentTime);
+    }
+
+
+    //---------------------------------- bind service end-----------------------------
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,15 +67,13 @@ public class MainActivity extends FragmentActivity implements FragmentTest.OnFra
         setContentView(R.layout.activity_main);
         description = (TextView) findViewById(R.id.description);
 
-
-
         button1 = (Button) findViewById(R.id.button1);
 
         button1.setOnClickListener(
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        description.setText("Button1 clicked");
+                        showTime();
                     }
                 }
         );
@@ -62,9 +88,18 @@ public class MainActivity extends FragmentActivity implements FragmentTest.OnFra
             }
         });
 
+        //start my intent service
+        Intent intentService = new Intent(this, MyIntentService.class);
+        startService(intentService);
+
+        //bind my service
+        Intent myServiceIntent = new Intent(this,MyService.class);
+        bindService(myServiceIntent,myConnection, Context.BIND_AUTO_CREATE);
 
     }
 
+
+    //----------------------------------menu start-----------------------------
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         //render menu on GUI
@@ -97,6 +132,11 @@ public class MainActivity extends FragmentActivity implements FragmentTest.OnFra
         return super.onOptionsItemSelected(item);
     }
 
+    //----------------------------------menu start-----------------------------
+
+
+
+    //----------------------------------thread start-----------------------------
     private void startThread() {
         //create and start a thread
         new Thread(new Runnable() {
@@ -110,8 +150,16 @@ public class MainActivity extends FragmentActivity implements FragmentTest.OnFra
                 handler.sendEmptyMessage(0);
             }
         }).start();
-
     }
+
+    Handler handler = new Handler(){
+        @Override
+        public void handleMessage(Message msg) {
+            description.setText(" after 5 seconds, Nice Job Thread !!!");
+        }
+    };
+
+    //----------------------------------thread end-----------------------------
 
 
     //Called by FragmentTest when user click the button

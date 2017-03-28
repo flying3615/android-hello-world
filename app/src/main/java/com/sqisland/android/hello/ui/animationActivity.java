@@ -1,6 +1,7 @@
 package com.sqisland.android.hello.ui;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Build;
 import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
@@ -12,6 +13,7 @@ import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 
 import com.sqisland.android.hello.R;
+import com.sqisland.android.hello.service.MyService;
 
 public class AnimationActivity extends Activity {
 
@@ -32,6 +34,10 @@ public class AnimationActivity extends Activity {
                 return true;
             }
         });
+
+        //start my service
+        Intent myServiceIntent = new Intent(this, MyService.class);
+        startService(myServiceIntent);
 
 
     }

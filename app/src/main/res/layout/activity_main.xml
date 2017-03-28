@@ -83,7 +83,7 @@
             android:layout_width="144dp"
             android:layout_height="59dp"
             android:gravity="center"
-            android:text="Button"
+            android:text="ShowTime"
             android:layout_row="1"
             android:layout_column="0" />
 
