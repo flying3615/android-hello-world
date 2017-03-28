@@ -8,6 +8,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.sqisland.android.hello.ui.FragementShow;
 import com.sqisland.android.hello.ui.FragmentTest;
@@ -56,14 +57,25 @@ public class MainActivity extends FragmentActivity implements FragmentTest.OnFra
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
+        //render menu on GUI
         getMenuInflater().inflate(R.menu.activity_main, menu);
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        if (item.getItemId() == R.id.action_bye) {
-            description.setText(R.string.bye);
+        //response to the menu item click
+        switch (item.getItemId()) {
+            case R.id.settings:
+                Toast.makeText(this,"click settings menu item", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.profile:
+                Toast.makeText(this,"click profile menu item", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.logout:
+                Toast.makeText(this,"click logout menu item", Toast.LENGTH_SHORT).show();
+                break;
+            default: break;
         }
         return super.onOptionsItemSelected(item);
     }

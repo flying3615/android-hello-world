@@ -2,9 +2,7 @@ package com.sqisland.android.hello.ui;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.provider.SyncStateContract;
 import android.support.v4.app.Fragment;
-import android.support.v4.view.GestureDetectorCompat;
 import android.util.Log;
 import android.view.GestureDetector;
 import android.view.LayoutInflater;
@@ -13,7 +11,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 
 import com.sqisland.android.hello.R;
 
