@@ -22,6 +22,7 @@ import com.sqisland.android.hello.ui.AnimationActivity;
 import com.sqisland.android.hello.ui.FragementShow;
 import com.sqisland.android.hello.ui.FragmentTest;
 import com.sqisland.android.hello.ui.GestureActivity;
+import com.sqisland.android.hello.ui.SQLActivity;
 
 public class MainActivity extends FragmentActivity implements FragmentTest.OnFragmentInteractionListener {
 
@@ -126,6 +127,11 @@ public class MainActivity extends FragmentActivity implements FragmentTest.OnFra
             case R.id.thread:
                 Toast.makeText(this,"click thread menu item", Toast.LENGTH_SHORT).show();
                 startThread();
+                break;
+            case R.id.SQL:
+                Toast.makeText(this,"click SQL menu item", Toast.LENGTH_SHORT).show();
+                Intent sqlIntent = new Intent(this, SQLActivity.class);
+                startActivity(sqlIntent);
                 break;
             default: break;
         }

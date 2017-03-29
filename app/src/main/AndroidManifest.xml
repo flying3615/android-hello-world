@@ -17,10 +17,12 @@
             </intent-filter>
         </activity>
         <activity android:name=".ui.GestureActivity" />
-        <activity android:name=".ui.AnimationActivity"></activity>
+        <activity android:name=".ui.AnimationActivity" />
 
-        <service android:name=".service.MyIntentService"/>
-        <service android:name=".service.MyService"/>
+        <service android:name=".service.MyIntentService" />
+        <service android:name=".service.MyService" />
+
+        <activity android:name=".ui.SQLActivity"></activity>
     </application>
 
 </manifest>
