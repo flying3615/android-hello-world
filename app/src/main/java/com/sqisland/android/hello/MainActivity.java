@@ -23,6 +23,7 @@ import com.sqisland.android.hello.ui.FragementShow;
 import com.sqisland.android.hello.ui.FragmentTest;
 import com.sqisland.android.hello.ui.GestureActivity;
 import com.sqisland.android.hello.ui.SQLActivity;
+import com.sqisland.android.hello.ui.VideoActivity;
 
 public class MainActivity extends FragmentActivity implements FragmentTest.OnFragmentInteractionListener {
 
@@ -132,6 +133,11 @@ public class MainActivity extends FragmentActivity implements FragmentTest.OnFra
                 Toast.makeText(this,"click SQL menu item", Toast.LENGTH_SHORT).show();
                 Intent sqlIntent = new Intent(this, SQLActivity.class);
                 startActivity(sqlIntent);
+                break;
+            case R.id.video:
+                Toast.makeText(this,"click SQL menu item", Toast.LENGTH_SHORT).show();
+                Intent videoIntent = new Intent(this, VideoActivity.class);
+                startActivity(videoIntent);
                 break;
             default: break;
         }

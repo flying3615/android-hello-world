@@ -10,4 +10,6 @@
         android:id="@+id/thread" />
     <item android:title="SQL"
         android:id="@+id/SQL" />
+    <item android:title="play video"
+        android:id="@+id/video" />
 </menu>
