@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="AppTheme" parent="android:Theme">
+    <!--<color name="buckys_bg_color">#009900</color>-->
+    <!---->
+    <!--<style name="BuckyTheme" parent="android:Theme">-->
+        <!--<item name="android:windowBackground">@color/buckys_bg_color</item>-->
+    <!--</style>-->
 
-    </style>
+
 </resources>

@@ -8,8 +8,16 @@
     <group />
     <item android:title="thread"
         android:id="@+id/thread" />
-    <item android:title="SQL"
-        android:id="@+id/SQL" />
-    <item android:title="play video"
-        android:id="@+id/video" />
+    <group >
+        <item android:title="camera"
+            android:id="@+id/camera" />
+        <item android:title="SQL"
+            android:id="@+id/SQL" />
+        <item android:title="play video"
+            android:id="@+id/video" />
+        <item android:title="Notification"
+            android:id="@+id/notification" />
+        <item android:title="preference"
+            android:id="@+id/preference" />
+    </group>
 </menu>

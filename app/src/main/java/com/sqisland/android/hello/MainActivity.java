@@ -19,9 +19,12 @@ import android.widget.Toast;
 import com.sqisland.android.hello.service.MyIntentService;
 import com.sqisland.android.hello.service.MyService;
 import com.sqisland.android.hello.ui.AnimationActivity;
+import com.sqisland.android.hello.ui.CameraActivity;
 import com.sqisland.android.hello.ui.FragementShow;
 import com.sqisland.android.hello.ui.FragmentTest;
 import com.sqisland.android.hello.ui.GestureActivity;
+import com.sqisland.android.hello.ui.NotificationActivity;
+import com.sqisland.android.hello.ui.PreferenceActivity;
 import com.sqisland.android.hello.ui.SQLActivity;
 import com.sqisland.android.hello.ui.VideoActivity;
 
@@ -135,9 +138,25 @@ public class MainActivity extends FragmentActivity implements FragmentTest.OnFra
                 startActivity(sqlIntent);
                 break;
             case R.id.video:
-                Toast.makeText(this,"click SQL menu item", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this,"click video menu item", Toast.LENGTH_SHORT).show();
                 Intent videoIntent = new Intent(this, VideoActivity.class);
                 startActivity(videoIntent);
+                break;
+            case R.id.camera:
+                Toast.makeText(this,"click camera menu item", Toast.LENGTH_SHORT).show();
+                Intent camera = new Intent(this, CameraActivity.class);
+                startActivity(camera);
+                break;
+            case R.id.notification:
+                Toast.makeText(this,"click notification menu item", Toast.LENGTH_SHORT).show();
+                Intent notif = new Intent(this, NotificationActivity.class);
+                startActivity(notif);
+                break;
+
+            case R.id.preference:
+                Toast.makeText(this,"click preference menu item", Toast.LENGTH_SHORT).show();
+                Intent pref = new Intent(this, PreferenceActivity.class);
+                startActivity(pref);
                 break;
             default: break;
         }
